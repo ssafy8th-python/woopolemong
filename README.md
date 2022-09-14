@@ -9,6 +9,8 @@
 - 여도현
 - 정원재
 - 최유경
+## 사용 
+- 파이썬, 장고, 부트스트랩
 ---
 # 계획
 1. 주제 선정 (완료)
@@ -96,7 +98,7 @@ https://ko.wix.com/website-template/view/html/1885?originUrl=https%3A%2F%2Fko.wi
 - 네비, 푸터, 상세페이지: 여도현
 - 로그인: 최유경
 - 프로젝트 게시판: 심재원
-- 회원가입: 회원가입
+- 회원가입: 
 - 게시글 작성(수정): 김희현
 - 사용 툴: figma https://www.figma.com/
 - 사용 색: https://kr.123rf.com/photo_73941714_%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%85%9C%ED%94%8C%EB%A6%BF-%ED%95%9C-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%97%A4%EB%8D%94-%EB%B0%8F-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%9A%94%EC%86%8C-%EC%97%AC%ED%96%89%EC%82%AC-%EC%97%B4%EB%8C%80-%EC%97%AC%EB%A6%84-%EB%A6%AC%EC%A1%B0%ED%8A%B8-.html
