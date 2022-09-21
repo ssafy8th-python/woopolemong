@@ -130,15 +130,15 @@ HTML: E6E6E6
     - whimsical: https://whimsical.com/
     - 링크 모음: https://time-click-b2a.notion.site/bb132b78a4854fe581390a96bc31429b
 
-- https://www.figma.com/file/XqGvn270VVg2Byggtnt1zU/woopolemong?node-id=514%3A2
+- figma: https://www.figma.com/file/XqGvn270VVg2Byggtnt1zU/woopolemong?node-id=514%3A2
 ---
 # 5. DB설계
 - Django model.py에 들어갈 내용 설계
-- 참조 사이트
-    - erdcloud: https://www.erdcloud.com/d/QR7Qp6mMWwodA69hJ
+- erdcloud: https://www.erdcloud.com/d/QR7Qp6mMWwodA69hJ
 ---
 # 6. API 설계
 - Django urls.py, views.py에 들어갈 내용 설계
+- google: https://docs.google.com/spreadsheets/d/189cauwq_i_SXmidlt4flo5JdYzIC8WxOZBlu0h2ZV-0/edit#gid=0
 ---
 # 7. 구현
 - Django, html, css, bootstrap으로 열심히 구현
