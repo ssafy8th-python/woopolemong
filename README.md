@@ -133,7 +133,7 @@ HTML: E6E6E6
 # 5. DB설계
 - Django model.py에 들어갈 내용 설계
 - 참조 사이트
-    - erdcloud: https://www.erdcloud.com/d/QR7Qp6mMWwodA69hJ
+    - erdcloud: https://www.erdcloud.com/
 ---
 # 6. API 설계
 - Django urls.py, views.py에 들어갈 내용 설계
