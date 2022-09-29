@@ -18,5 +18,9 @@ from . import views
 
 app_name = 'portfolios'
 urlpatterns = [
-    
+    path('', views.index, name='index'),    # 포폴 게시판 메인페이지
+    path('create/', views.create, name='create'),   # 게시글 생성
+    path('<int:pk>/', views.detail, name='detail'),   # 게시글 상세페이지
+    path('<int:pk>/update/', views.update, name='update'),   # 게시글 수정
+    path('<int:pk>/delete/', views.delete, name='delete'),   # 게시글 삭제
 ]
