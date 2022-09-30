@@ -11,10 +11,10 @@ def index(request) :
     return render(request, 'portfolios/index.html',)
 
 def create(request) :
-    pass
+    return render(request, 'portfolios/create.html',)
 
 def delete(request) :
     pass
 
 def update(request) :
-    pass
+    return render(request, 'portfolios/update.html',)
