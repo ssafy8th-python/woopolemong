@@ -1,5 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>login</p>
+<div class="d-flex justify-content-evenly align-items-center" style="min-height: 100vh;">
+  {% comment %} 로그인폼 {% endcomment %}
+    <div > 
+        <form action="">
+            <p>login</p>
+
+            <label for="login_id"></label>
+            <input type="text" id="login_id" name="login_id" placeholder="ID">
+            <br>
+
+            <label for="login_pwd"></label>
+            <input type="password" id="login_pwd" name="login_pwd" placeholder="Password">
+            <br>
+
+            <input type="checkbox" id="remeber">
+            <label for="remeber">Remember me</label>
+
+            <a href="">Forgot your password?</a>
+            <br>
+
+            <input type="submit" value="Sign in">
+            <br>
+
+            <p>Don't have an account? <a href="">Create account</a></p>
+
+        </form>
+        
+  </div>
+
+  <hr style="height: 100vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;">
+
+
+  {% comment %} 소셜로그인폼 {% endcomment %}  
+    <div>
+        <button>
+            <img src="" alt="none facebook img">
+            Sign in with Facebook
+        </button>
+        <br>
+        <button>
+            <img src="/static/logo/google-logo.png" alt="none google img">
+            Sign in with Google
+        </button>
+        <br>
+        <button>
+            <img src="" alt="none kakao img">
+            Sign in with Kakao
+        </button>
+        <br>
+        <button>
+            <img src="" alt="none naver img">
+            Sign in with Naver
+        </button>
+    </div>
+</div>
+
 {% endblock content %}
