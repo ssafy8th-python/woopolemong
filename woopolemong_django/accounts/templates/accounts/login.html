@@ -1,56 +1,68 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-flex justify-content-evenly align-items-center" style="min-height: 100vh;">
+<div class="d-flex justify-content-evenly align-items-center" style="max-height: 90vh;">
   {% comment %} 로그인폼 {% endcomment %}
     <div > 
-        <form action="">
-            <p>login</p>
+        <p style="font-size:30px; text-align:center;">Login</p>
+        <form action="" method="POST"  >
+            {% csrf_token %}
 
-            <label for="login_id"></label>
-            <input type="text" id="login_id" name="login_id" placeholder="ID">
+            <label for="login_id">ID</label>
+            <br>
+            <input type="text" id="login_id" name="login_id" placeholder="ID" class="mt-2 mb-4 " style="width : 480px; height:50px">
             <br>
 
-            <label for="login_pwd"></label>
-            <input type="password" id="login_pwd" name="login_pwd" placeholder="Password">
+            <label for="login_pwd">PASSWORD</label>
+            <br>
+            <input type="password" id="login_pwd" name="login_pwd" placeholder="PASSWORD" class=" mt-2 mb-3" style="width : 480px; height:50px">
             <br>
 
-            <input type="checkbox" id="remeber">
-            <label for="remeber">Remember me</label>
+            <div class="d-flex justify-content-between"
+            >
+                <div>
+                    <input type="checkbox" id="remeber">
+                    <label for="remeber">Remember me</label>        
+                </div>
+                
+                <a href="" style="color:#59ADCA; text-decoration-line:none;">Forgot your password?</a>
+            </div>
 
-            <a href="">Forgot your password?</a>
+            <input type="submit" value="Sign in" style="width : 480px; height:50px; border:none; background:#CFEDF8" class="my-4">
             <br>
 
-            <input type="submit" value="Sign in">
-            <br>
-
-            <p>Don't have an account? <a href="">Create account</a></p>
-
+            <div class="d-flex justify-content-center">
+                <p>
+                    Don't have an account? 
+                    <a href="" style="color:#59ADCA; text-decoration-line:none;">Create account</a>
+                </p>  
+            </div>
+            
         </form>
         
   </div>
 
-  <hr style="height: 100vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;">
+        <hr style="height: 90vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;">
 
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
     <div>
-        <button>
+        <button style="width : 480px; height:60px; background:white" class="mb-4"> 
             <img src="" alt="none facebook img">
             Sign in with Facebook
         </button>
         <br>
-        <button>
+        <button style="width : 480px; height:60px; background:white" class="mb-4">
             <img src="/static/logo/google-logo.png" alt="none google img">
             Sign in with Google
         </button>
         <br>
-        <button>
+        <button style="width : 480px; height:60px; background:white" class="mb-4">
             <img src="" alt="none kakao img">
             Sign in with Kakao
         </button>
         <br>
-        <button>
+        <button style="width : 480px; height:60px; background:white">
             <img src="" alt="none naver img">
             Sign in with Naver
         </button>
