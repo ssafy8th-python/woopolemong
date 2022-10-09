@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'portfolios',
 
     # third party apps
-
+    'bootstrap5',
+    'django_extensions',
 
     # django apps
     'django.contrib.admin',
