@@ -6,6 +6,7 @@ from accounts.forms import CustomUserCreationForm
 
 
 def login(request):
+
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
@@ -22,14 +23,15 @@ def login(request):
 
 
 def logout(request):
-    
+
     if request.user.is_authenticated:
         auth_logout(request)
     
-    return redirect('porfolios:index')
+    return redirect('portfolios:index')
 
 
 def signup(request):
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -45,8 +47,13 @@ def signup(request):
     return render(request, 'accounts/signup.html', context)
 
 
-def signout():
-    pass
+def signout(request):
+    
+    if request.user.is_authenticated:
+        request.user.delete()
+        auth_logout(request)
+
+    return redirect('portfolios:index')
 
 
 def findpassword():
