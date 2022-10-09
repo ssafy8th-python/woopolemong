@@ -8,14 +8,14 @@
         <form action="" method="POST"  >
             {% csrf_token %}
 
-            <label for="login_id">ID</label>
+            <label for="id_username">ID</label>
             <br>
-            <input type="text" id="login_id" name="login_id" placeholder="ID" class="mt-2 mb-4 " style="width : 480px; height:50px">
+            <input type="text" id="id_username" name="username" placeholder="ID" class="mt-2 mb-4 " style="width : 480px; height:50px">
             <br>
 
-            <label for="login_pwd">PASSWORD</label>
+            <label for="id_password">PASSWORD</label>
             <br>
-            <input type="password" id="login_pwd" name="login_pwd" placeholder="PASSWORD" class=" mt-2 mb-3" style="width : 480px; height:50px">
+            <input type="password" id="id_password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3" style="width : 480px; height:50px">
             <br>
 
             <div class="d-flex justify-content-between"
@@ -42,7 +42,7 @@
         
   </div>
 
-        <hr style="height: 90vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;">
+        <div style="height: 90vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;"></div>
 
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
