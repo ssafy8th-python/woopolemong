@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout as auth_logout
 
 from accounts.forms import CustomUserCreationForm
 
-# Create your views here.
 
 def login(request):
     if request.method == 'POST':
@@ -22,8 +21,13 @@ def login(request):
     return render(request, 'accounts/login.html', context)
 
 
-def logout():
-    pass
+def logout(request):
+    
+    if request.user.is_authenticated:
+        auth_logout(request)
+    
+    return redirect('porfolios:index')
+
 
 def signup(request):
     if request.method == 'POST':
@@ -43,6 +47,7 @@ def signup(request):
 
 def signout():
     pass
+
 
 def findpassword():
     pass
