@@ -1,32 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h4 style="visibility: hidden;" > {{blog.update_pcounter}} </h4>
+<!-- <h4 style="visibility: hidden;" > {{portfolio.update_pcounter}} </h4> -->
 
       <div class="pdetail" style="background-color:rgba(255, 255, 255, 0.801); text-align:center;">
 
   
-        <h1 style="padding-top:30px">{{ blog.p_title }}</h1> 
-        작성일시 : {{ blog.p_pub_date }}
+        <h1 style="padding-top:30px">{{ portfolio.title }}</h1> 
+        작성일시 : {{ portfolio.created_at }}
         <br>
-        조회수 : {{blog.p_views}} 
-        <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'Pdelete' blog.id %}"> 삭제 </a>
-        <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'Pupdate' blog.id %}"> 수정 </a>
-        <a style="background-color: yellowgreen;color:black; margin-left: 20px;"href="{% url 'Project' %}"> 돌아가기 </a>
+        조회수 : {{portfolio.p_views}} 
+            # models에 p_views = models.PostitiveIntegerField(default=0) 넣으면 조회수 수집
+        <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'portfolios:delete' portfolio.pk %}"> 삭제 </a>
+        <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'portfolios:update' portfolio.pk %}"> 수정 </a>
+        <a style="background-color: yellowgreen;color:black; margin-left: 20px;"href="{% url 'portfolios:index' %}"> 돌아가기 </a>
         
         
         <br>
 
         <hr>
-        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ blog.p_body|linebreaksbr }}</p> 
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content }}</p> 
         <div>
-        {% if blog.p_images %}
-                <img src="{{ blog.p_images.url }}" width="600" height="500">
+        {% if portfolio.image_url %}
+                <img src="{{ portfolio.image_url.url }}" width="600" height="500">
         {% endif %}
         </div>
         <hr>
-        <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ blog.p_link }}</p> 
-        <!-- <p> - {{ blog.p_writer }}</p> -->
+<!--         <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ portfolio.p_link }}</p>  -->
+            # 추후 해당 프로젝트 등록된 깃허브 링크 작성
+
         
         <br>
         <br>
