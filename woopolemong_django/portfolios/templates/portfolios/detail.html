@@ -1,6 +1,60 @@
 {% extends 'base.html' %}
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Project' %}">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'News' %}">News</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'Contact' %}">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:darkblue;"href="{% url 'Create' %}">NEWPOST</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
 
 {% block content %}
-어렵다
+<h4 style="visibility: hidden;" > {{blog.update_pcounter}} </h4>
 
-{% endblock content %}
+      <div class="pdetail" style="background-color:rgba(255, 255, 255, 0.801); text-align:center;">
+
+  
+        <h1 style="padding-top:30px">{{ blog.p_title }}</h1> 
+        작성일시 : {{ blog.p_pub_date }}
+        <br>
+        조회수 : {{blog.p_views}} 
+        <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'Pdelete' blog.id %}"> 삭제 </a>
+        <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'Pupdate' blog.id %}"> 수정 </a>
+        <a style="background-color: yellowgreen;color:black; margin-left: 20px;"href="{% url 'Project' %}"> 돌아가기 </a>
+        
+        
+        <br>
+
+        <hr>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ blog.p_body|linebreaksbr }}</p> 
+        <div>
+        {% if blog.p_images %}
+                <img src="{{ blog.p_images.url }}" width="600" height="500">
+        {% endif %}
+        </div>
+        <hr>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ blog.p_link }}</p> 
+        <!-- <p> - {{ blog.p_writer }}</p> -->
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        
+      </div>
+
+{% endblock %}
