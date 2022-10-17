@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+section{
+    padding-bottom: 50px;
+}
+
 #main_index{
     position: relative;
 }
