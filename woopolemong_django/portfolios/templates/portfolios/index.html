@@ -9,14 +9,35 @@
     </audio>
 
     <div id="main_index">
-        <img src="{% static 'portfolios/img/index_main.png' %}" alt="" id='index_main_img'>
+        <img src="{% static 'portfolios/img/index_main.png' %}" alt="..." id='index_main_img'>
         <h1 id="index_main_text">우폴레몽</h1>
     </div>
-    
+    <section class="page-section bg-white">
+        <div class="container">
+            <div>
+                <h1 class="section_head">- 우폴레몽 소개 -</h1>
+            </div>
+            <div class="tc">
+                <div class="introduce">
+                    <img src="{% static 'portfolios/img/friends.png' %}" alt="..." class="collection">
+                </div>
+                <div class="introduce">
+                    <p>
+                        우폴레몽은 '우리들의 포트폴리오 레포트 모음'을 줄인 말입니다.<br>
+                        처음 진행하는 프로젝트 이기때문에 많이 어설프기도 하지만<br>
+                        이 프로젝트를 기반으로 앞으로 저희들의 경험을 쌓아가기 위해 진행하였습니다.<br>
+                        <del>저희 6명은 삼성 청년 소프트웨어 아카데미(ssafy) 광주 1반에서 만나,<br>
+                        알고리즘 공부를 위해 스터디를 이루었습니다.<br>
+                        최유경 바보 (아 뭐라 써야하지)</del>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="page-section bg-light">
         <div class="container">
             <div>
-                <h1 id="team_head">- 딩코 팀 소개 -</h1>
+                <h1 class="section_head">- 딩코 팀 소개 -</h1>
             </div>
         </div>
         <div class="container">
@@ -65,7 +86,18 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="page-section bg-white">
+        <div class="container">
+            <div>
+                <h1 class="section_head">- 포트폴리오 -</h1>
+            </div>
+            <div class="tc">
+                <a href="#">
+                    <img src="{% static 'portfolios/img/collection.png' %}" alt="..." class="collection">
+                </a>
+            </div>
+        </div>
+    </section>
     
-    
-
 {% endblock content %}

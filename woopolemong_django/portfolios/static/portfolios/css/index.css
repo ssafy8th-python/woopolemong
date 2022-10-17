@@ -20,7 +20,7 @@
 
 #index_main_text{
     font-family: 'yg-jalnan';
-    font-size: 5rem;
+    font-size: 5.5rem;
     letter-spacing: 10px;
     top: 50%;
     left: 50%;
@@ -30,12 +30,12 @@
     color: white;
 }
 
-#team_head{
+.section_head{
     font-family: 'yg-jalnan';
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    font-size: 3rem;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    font-size: 4rem;
 }
 
 .team_member {
@@ -58,6 +58,28 @@
 
 .member_comment{
     font-family: 'yg-jalnan';
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: gray;
 }
+
+.introduce{
+    display: inline;
+}
+
+.introduce p{
+    font-family: 'yg-jalnan';
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: gray;
+}
+
+.tc{
+    text-align: center;
+}
+
+.collection{
+    height: 100%;
+    width: auto;
+}
+
