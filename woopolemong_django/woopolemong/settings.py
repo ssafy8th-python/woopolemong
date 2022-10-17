@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # third party apps
     'bootstrap5',
     'django_extensions',
+    'imagekit',
 
     # django apps
     'django.contrib.admin',
@@ -127,12 +128,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATIC_URL = '/static/'
 
 # 기본 경로 외에 추가적인 정적 파일 경로 목록
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/media/'
 
 # 배포할 때 모든 정적 파일을 수집할 폴더
 # STATIC_ROOT = BASE_DIR / 'staticfiles'

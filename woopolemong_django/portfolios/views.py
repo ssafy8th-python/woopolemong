@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_safe, require_http_methods, require_POST
 from .models import Portfolio
-from .forms import PortfolioForm
+from .forms import PortfolioForm, Portfolio_imageForm
 # Create your views here.
 
 
@@ -17,8 +17,10 @@ def index(request):
 @require_safe
 def detail(request, portfolio_pk):
     portfolio = Portfolio.objects.get(pk=portfolio_pk)
+    images = portfolio.Portfolio_image_set.all()
     context = {
         'portfolio': portfolio,
+        'images': images,
     }
     return render(request, 'portfolios/detail.html', context)
 
@@ -27,15 +29,24 @@ def detail(request, portfolio_pk):
 def create(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            # 게시글
             form = PortfolioForm(request.POST)
-            portfolio = form.save(commit=False)
-            portfolio.author = request.user
-            portfolio.save()
-            return redirect('portfolios:detail', portfolio.pk)
+            image_form = Portfolio_imageForm(request.POST, request.FILES)
+            if form.is_valid() and image_form.is_valid():
+                portfolio = form.save(commit=False)
+                portfolio.author = request.user
+                portfolio.save()
+                # 이미지
+                image = image_form.save(commit=False)
+                image.portfolio = portfolio
+                image.save()
+                return redirect('portfolios:detail', portfolio.pk)
         else:
             form = PortfolioForm()
+            image_form = Portfolio_imageForm()
         context = {
             'form': form,
+            'image_form': image_form
         }
         return render(request, 'portfolios/create.html', context)
     else:
@@ -48,11 +59,14 @@ def update(request, portfolio_pk):
     if request.user == portfolio.author:
         if request.method == 'POST':
             form = PortfolioForm(request.POST, instance=portfolio)
-            if form.is_valid:
+            image_form = Portfolio_imageForm(request.POST, request.FILES, instance=portfolio.Portfolio_image_set.all())
+            if form.is_valid() and image_form.is_valid():
                 form.save()
+                image_form.save()
                 return redirect('portfolios:detail', portfolio.pk)
         else:
             form = PortfolioForm(instance=portfolio)
+            image_form = Portfolio_imageForm(instance=portfolio.Portfolio_image_set.all())
         context = {
                 'form': form,
             }

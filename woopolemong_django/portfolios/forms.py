@@ -1,6 +1,5 @@
 from django import forms
-from django import forms
-from .models import Portfolio
+from .models import Portfolio, Portfolio_image
 
 class PortfolioForm(forms.ModelForm):
     portfolio = '[포트폴리오]'
@@ -12,3 +11,9 @@ class PortfolioForm(forms.ModelForm):
     class Meta:
         model = Portfolio
         exclude = [('author'),]
+
+class Portfolio_imageForm(forms.ModelForm):
+
+    class Meta:
+        model = Portfolio_image
+        exclude = [('portfolio'),]
