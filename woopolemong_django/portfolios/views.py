@@ -17,7 +17,7 @@ def index(request):
 @require_safe
 def detail(request, portfolio_pk):
     portfolio = Portfolio.objects.get(pk=portfolio_pk)
-    images = portfolio.Portfolio_image_set.all()
+    images = portfolio.portfolio_image_set.all()
     context = {
         'portfolio': portfolio,
         'images': images,
@@ -59,14 +59,14 @@ def update(request, portfolio_pk):
     if request.user == portfolio.author:
         if request.method == 'POST':
             form = PortfolioForm(request.POST, instance=portfolio)
-            image_form = Portfolio_imageForm(request.POST, request.FILES, instance=portfolio.Portfolio_image_set.all())
+            image_form = Portfolio_imageForm(request.POST, request.FILES, instance=portfolio.portfolio_image_set.all())
             if form.is_valid() and image_form.is_valid():
                 form.save()
                 image_form.save()
                 return redirect('portfolios:detail', portfolio.pk)
         else:
             form = PortfolioForm(instance=portfolio)
-            image_form = Portfolio_imageForm(instance=portfolio.Portfolio_image_set.all())
+            image_form = Portfolio_imageForm(instance=portfolio.portfolio_image_set.all())
         context = {
                 'form': form,
             }

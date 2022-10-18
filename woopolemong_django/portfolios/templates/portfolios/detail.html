@@ -9,7 +9,7 @@
         <h1 style="padding-top:30px">{{ portfolio.title }}</h1> 
         작성일시 : {{ portfolio.created_at }}
         <br>
-        조회수 : {{portfolio.p_views}} 
+        {% comment %} 조회수 : {{portfolio.p_views}}  {% endcomment %}
             # models에 p_views = models.PostitiveIntegerField(default=0) 넣으면 조회수 수집
         <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'portfolios:delete' portfolio.pk %}"> 삭제 </a>
         <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'portfolios:update' portfolio.pk %}"> 수정 </a>
