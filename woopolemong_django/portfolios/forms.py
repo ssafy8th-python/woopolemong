@@ -13,14 +13,19 @@ class PortfolioForm(forms.ModelForm):
     title = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class':'title_input',
+                'class':'Title_input',
                 'placeholder':'제목',
             }
         )
     )
 
     content = forms.CharField(
-        widget=CKEditorUploadingWidget())
+        widget=CKEditorUploadingWidget(
+            attrs={
+                'class':'Content_input',
+                'placeholder':'내용을 입력해주세요.',
+            }
+        ))
         
 
     class Meta:
