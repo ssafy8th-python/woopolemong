@@ -15,8 +15,7 @@
 
   <form action="{% url 'portfolios:create' %}" method="POST">
     {% csrf_token %}
-    <p class = 'Write_2'>카테고리 {{ form.category }} <br>
-       제목: {{ form.title }}</p>
+    <p class = 'Write_2'>카테고리 {{ form.category }} &emsp; &nbsp; 제목: {{ form.title }}</p>
     
     <br>
     <p class = 'Write_2'> Content </p>
