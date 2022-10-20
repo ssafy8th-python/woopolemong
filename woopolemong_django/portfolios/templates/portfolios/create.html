@@ -18,14 +18,21 @@
     <p class = 'Write_2'>카테고리 {{ form.category }} &emsp; &nbsp; 제목: {{ form.title }}</p>
     
     <br>
-    <p class = 'Write_2'> Content </p>
-    {{ form.content }}
+    <p class = 'Write_2'> Content  <br>{{ form.content }} </p>
+    
 
-    <div class="mb-3">
+
+    <br><br>
+    {{ image_form.as_p }}
+    {{ image_form.as_p }}
+
+    {% comment %} <div class="mb-3">
       <input class="form-control form-control-sm" id="formFileSm" type="file">
-    </div> <br>
-    <input type="submit" style="background-color: #e3f2fd;">
+    </div> <br> {% endcomment %}
+    <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
+    <br>
   </form>
 
+  
 </div>
 {% endblock content %}
