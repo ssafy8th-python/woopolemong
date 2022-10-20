@@ -19,7 +19,7 @@
         <br>
 
         <hr>
-        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content }}</p> 
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content|safe }}</p> 
         <div>
         {% if portfolio.image_url %}
                 <img src="{{ portfolio.image_url.url }}" width="600" height="500">

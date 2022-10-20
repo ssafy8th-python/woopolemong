@@ -13,12 +13,15 @@
       </div></nav><br>
  
 
-  <form action="{% url 'portfolios:create' %}" method="POST">
+  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <p class = 'Write_2'>카테고리 {{ form.category }} &emsp; &nbsp; 제목: {{ form.title }}</p>
     
     <br>
-    <p class = 'Write_2'> Content  <br>{{ form.content }} </p>
+    <p class = 'Write_2'>Content</p>
+    {{ form.media }}
+    {{ form.content|safe }}
+
     
 
 
