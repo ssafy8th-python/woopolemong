@@ -1,5 +1,7 @@
 from django import forms
 from .models import Portfolio, Portfolio_image
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
 
 class PortfolioForm(forms.ModelForm):
     portfolio = '[포트폴리오]'
@@ -17,6 +19,9 @@ class PortfolioForm(forms.ModelForm):
         )
     )
 
+    content = forms.CharField(
+        widget=CKEditorUploadingWidget())
+        
 
     class Meta:
         model = Portfolio
