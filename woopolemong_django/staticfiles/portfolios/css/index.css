@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+    padding-bottom: 50px;
+}
+
+#main_index{
+    position: relative;
+}
+
+#index_main_img{
+    background-image: url('../img/index_main.png');
+    position: relative;
+    max-width: 100%; 
+    height: auto;
+    filter: brightness(50%);
+    /* opacity: 0.5; */
+}
+
+#index_main_text{
+    font-family: 'yg-jalnan';
+    font-size: 5.5rem;
+    letter-spacing: 10px;
+    top: 50%;
+    left: 50%;
+    text-shadow: 2px 2px 2px black;
+    position: absolute;
+    transform: translate( -50%, -50% );
+    color: white;
+}
+
+.section_head{
+    font-family: 'yg-jalnan';
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    font-size: 4rem;
+}
+
+.team_member {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.team_member img {
+    width: 100%;
+    height: auto;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+}
+
+.team_member h4{
+    font-family: 'yg-jalnan';
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.member_comment{
+    font-family: 'yg-jalnan';
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.introduce{
+    display: inline;
+}
+
+.introduce p{
+    font-family: 'yg-jalnan';
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: gray;
+}
+
+.tc{
+    text-align: center;
+}
+
+.collection{
+    height: 100%;
+    width: auto;
+}
+

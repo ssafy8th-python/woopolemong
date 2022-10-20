@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'django_extensions',
     'imagekit',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # django apps
     'django.contrib.admin',
@@ -140,6 +142,9 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 # 배포할 때 모든 정적 파일을 수집할 폴더
 # STATIC_ROOT = BASE_DIR / 'staticfiles'

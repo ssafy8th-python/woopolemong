@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.Write{
+  font-family: 'yg-jalnan';
+  font-size: 1.6rem;
+  
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;}
+
+
+.Write_2{
+  font-family: 'yg-jalnan';
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;}
+
+
+.title_input{
+  width: 1000000px;
+}
