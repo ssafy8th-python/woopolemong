@@ -8,6 +8,16 @@ class PortfolioForm(forms.ModelForm):
     ]
     category = forms.ChoiceField(choices=CATEGORY_CHOICES)
 
+    title = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class':'title_input',
+                'placeholder':'제목',
+            }
+        )
+    )
+
+
     class Meta:
         model = Portfolio
         exclude = [('author'),]
