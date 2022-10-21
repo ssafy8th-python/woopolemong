@@ -23,4 +23,5 @@ urlpatterns = [
     path('<int:portfolio_pk>/', views.detail, name='detail'),   # 게시글 상세페이지
     path('<int:portfolio_pk>/update/', views.update, name='update'),   # 게시글 수정
     path('<int:portfolio_pk>/delete/', views.delete, name='delete'),   # 게시글 삭제
+    path('projectlists', views.projectlist, name='projectlist'),   # 프로젝트 리스트
 ]
