@@ -33,7 +33,13 @@ class PortfolioForm(forms.ModelForm):
         exclude = [('author'),]
 
 class Portfolio_imageForm(forms.ModelForm):
-
+    image = forms.ImageField(
+        widget=forms.ClearableFileInput(
+            attrs={
+                'multiple':True,
+            }
+        )
+    )
     class Meta:
         model = Portfolio_image
         exclude = [('portfolio'),]

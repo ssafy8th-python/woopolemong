@@ -31,16 +31,22 @@ def create(request):
         if request.method == 'POST':
             # 게시글
             form = PortfolioForm(request.POST)
-            image_form = Portfolio_imageForm(request.POST, request.FILES)
-            if form.is_valid() and image_form.is_valid():
+            
+            # print(request.FILES.getlist('image'))
+            if form.is_valid():
                 portfolio = form.save(commit=False)
                 portfolio.author = request.user
                 portfolio.save()
                 # 이미지
-                image = image_form.save(commit=False)
-                image.portfolio = portfolio
-                image.save()
-                return redirect('portfolios:detail', portfolio.pk)
+            for photo in request.FILES.getlist('image'):
+                request.FILES['image'] = photo
+                image_form = Portfolio_imageForm(request.POST, request.FILES)
+                print(photo, type(photo))
+                if image_form.is_valid():
+                    image = image_form.save(commit=False)
+                    image.portfolio = portfolio
+                    image.save()
+            return redirect('portfolios:detail', portfolio.pk)
         else:
             form = PortfolioForm()
             image_form = Portfolio_imageForm()
