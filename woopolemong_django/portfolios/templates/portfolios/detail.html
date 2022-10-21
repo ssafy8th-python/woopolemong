@@ -14,9 +14,8 @@
         {% if request.user.is_authenticated %}
           <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'portfolios:delete' portfolio.pk %}"> 삭제 </a>
           <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'portfolios:update' portfolio.pk %}"> 수정 </a>
-          
         {% endif %}
-        <a style="background-color: yellowgreen;color:black;"href="{% url 'portfolios:projectlist' %}"> 돌아가기 </a>
+        <a style="background-color: yellowgreen;color:black; margin-left:15px;"href="{% url 'portfolios:projectlist' %}"> 돌아가기 </a>
         <br>
 
         <hr>
