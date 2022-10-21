@@ -84,3 +84,10 @@ def delete(request, portfolio_pk):
             return redirect('portfolios:index')
     else:
         return redirect('portfolios:detail', portfolio.pk)
+
+def projectlist(request) :
+    projects = Portfolio.objects.order_by('-pk')
+    context = {
+        'projects' : projects,
+    }
+    return render(request, 'portfolios/projectlist.html', context)
