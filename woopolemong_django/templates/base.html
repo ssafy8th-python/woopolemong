@@ -19,10 +19,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href='#sogae'>소개</a>
+            <a class="nav-link active" aria-current="page" href={% url 'portfolios:index' %}#sogae>소개</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#project">프로젝트</a>
+            <a class="nav-link" href= {% url 'portfolios:index' %}#project>프로젝트</a>
           </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item">
