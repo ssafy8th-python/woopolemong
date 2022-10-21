@@ -19,17 +19,23 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#sogae">소개</a>
+            <a class="nav-link active" aria-current="page" href='#sogae'>소개</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#project">프로젝트</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
           </li>
+ 
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:login' %}">로그아웃</a>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -39,7 +45,7 @@
   
   
   {% endblock content %}
-  <div id='project' class="jumbotron text-center mt-5 mb-0">
+  <div class="jumbotron text-center mt-5 mb-0 sticky-end">
     <p>© 2022 created by DingCo</p>
   </div>
   <!-- JavaScript Bundle with Popper -->
