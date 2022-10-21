@@ -10,7 +10,8 @@
   <nav class="navbar navbar-light" style="background-color: #ffe7fe;">
     <div class="container-fluid">
       <p class = 'Write'> Write</p>
-      </div></nav><br>
+      <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
+    </div></nav><br>
  
 
   <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data">
