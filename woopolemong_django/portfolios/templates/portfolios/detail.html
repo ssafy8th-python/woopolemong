@@ -21,9 +21,12 @@
         <hr>
         <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content|safe }}</p> 
         <div>
-        {% if portfolio.image_url %}
-                <img src="{{ portfolio.image_url.url }}" width="600" height="500">
+        {% if portfolio.image %}
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="none" width="600" height="500">
+        {% endfor %}
         {% endif %}
+        {% comment %} {% endif %} {% endcomment %}
         </div>
         <hr>
 <!--         <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ portfolio.p_link }}</p>  -->
