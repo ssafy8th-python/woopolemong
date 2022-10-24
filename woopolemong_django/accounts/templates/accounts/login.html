@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="d-flex justify-content-evenly align-items-center" style="max-height: 90vh;">
@@ -48,26 +49,34 @@
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
     <div>
-        <button style="width : 480px; height:60px; background:white" class="mb-4"> 
-            <img src="" alt="none facebook img">
-            Sign in with Facebook
+        <button style="width : 480px; height:60px; background:white" class="mb-4 social"> 
+            <img src="{% static 'accounts/img/icons/facebook-icon.png' %}" width ="40px" alt="none facebook img">
+            &nbsp; Sign in with Facebook
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white" class="mb-4">
-            <img src="/static/logo/google-logo.png" alt="none google img">
+        <button style="width : 480px; height:60px; background:white" class="mb-4 social">
+            <img src="{% static 'accounts/img/icons/google-icon.png' %}" width ="40px" alt="none google img">
             Sign in with Google
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white" class="mb-4">
-            <img src="" alt="none kakao img">
-            Sign in with Kakao
+        <button style="width : 480px; height:60px; background:white" class="mb-4 social">
+            <img src="{% static 'accounts/img/icons/kakao-icon.png' %}" width ="40px" alt="none kakao img">
+            &nbsp; Sign in with Kakao
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white">
-            <img src="" alt="none naver img">
+        <button style="width : 480px; height:60px; background:white" class= "social">
+            <img src="{% static 'accounts/img/icons/naver-icon.png' %}" width ="40px" alt="none naver img">
             Sign in with Naver
         </button>
     </div>
 </div>
+<script>
+    const socials = document.querySelectorAll(".social")
 
+    socials.forEach((social) => {
+        social.addEventListener('click', function () {
+            alert('아직 미구현 상태입니다.')
+        })
+    })
+</script>
 {% endblock content %}
