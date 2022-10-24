@@ -25,9 +25,10 @@
             <a class="nav-link" href= {% url 'portfolios:index' %}#project>프로젝트</a>
           </li>
           {% if request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
-            </li>
+            <form class="nav-item" action={% url 'accounts:logout' %} method="POST">
+              {% csrf_token %}
+              <button class="nav-link bg-light" style="border:none;">로그아웃</button>
+            </form>
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
