@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from accounts.forms import CustomUserCreationForm
 import random
 
+@require_http_methods(['GET', 'POST'])
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('portfolios:index')
 
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -21,6 +25,7 @@ def login(request):
     return render(request, 'accounts/login.html', context)
 
 
+@require_POST
 def logout(request):
 
     if request.user.is_authenticated:
@@ -29,7 +34,10 @@ def logout(request):
     return redirect('portfolios:index')
 
 
+@require_http_methods(['GET', 'POST'])
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('portfolios:index')
 
     pictures = ['cyk', 'jwj', 'khh', 'kty', 'sjw', 'ydh']
     picture = 'accounts/img/' + random.choice(pictures) + '.png'
@@ -51,6 +59,7 @@ def signup(request):
     return render(request, 'accounts/signup.html', context)
 
 
+@require_POST
 def signout(request):
     
     if request.user.is_authenticated:
