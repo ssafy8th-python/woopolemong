@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
-
 from accounts.forms import CustomUserCreationForm
-
+import random
 
 def login(request):
 
@@ -32,16 +31,21 @@ def logout(request):
 
 def signup(request):
 
+    pictures = ['cyk', 'jwj', 'khh', 'kty', 'sjw', 'ydh']
+    picture = 'accounts/img/' + random.choice(pictures) + '.png'
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('accounts:login')
-    else:
+            return redirect('portfolios:index')
+    elif request.method == 'GET':
+
         form = CustomUserCreationForm()
 
     context = {
         'form' : form,
+        'picture' : picture,
     }
 
     return render(request, 'accounts/signup.html', context)

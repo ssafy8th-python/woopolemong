@@ -9,9 +9,9 @@
         <form action="" method="POST"  >
             {% csrf_token %}
 
-            <label for="id_username">ID</label>
+            <label for="id_username">Name</label>
             <br>
-            <input type="text" id="id_username" name="username" placeholder="ID" class="mt-2 mb-4 " style="width : 480px; height:50px">
+            <input type="text" id="id_username" name="username" placeholder="Name" class="mt-2 mb-4 " style="width : 480px; height:50px">
             <br>
 
             <label for="id_password">PASSWORD</label>
@@ -35,7 +35,7 @@
             <div class="d-flex justify-content-center">
                 <p>
                     Don't have an account? 
-                    <a href="" style="color:#59ADCA; text-decoration-line:none;">Create account</a>
+                    <a href="{% url 'accounts:signup' %}" style="color:#59ADCA; text-decoration-line:none;">Create account</a>
                 </p>  
             </div>
             
