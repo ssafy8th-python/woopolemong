@@ -3,21 +3,19 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'accounts/css/acounts.css' %}">
-<div class="login-body d-flex justify-content-evenly align-items-center">
+<div class="login-body d-flex justify-content-center align-items-center">
   {% comment %} 로그인폼 {% endcomment %}
     <div> 
 
-        <p class="login-para">Login</p>
+        <p class="login-para">로그인</p>
         <form action="" method="POST"  >
             {% csrf_token %}
-            <label for="id_username">Name</label>
             <br>
-            <input type="text"  name="username" placeholder="Name" class="mt-2 mb-4 login-input " required>
+            <input type="text" id="id_username" name="username" placeholder="Name" class="mt-2 mb-4 login-input " required>
             <br>
 
-            <label for="id_password">PASSWORD</label>
             <br>
-            <input type="password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " required>
+            <input type="password" id="id_password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " required>
             <br>
 
             <div class="d-flex justify-content-between">
@@ -47,7 +45,7 @@
 
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
-    <div>
+    {% comment %} <div>
         <button class=" mb-4 social"> 
             <img src="{% static 'accounts/img/icons/facebook-icon.png' %}" width ="40px" alt="none facebook img">
             &nbsp; Sign in with Facebook
@@ -67,7 +65,7 @@
             <img src="{% static 'accounts/img/icons/naver-icon.png' %}" width ="40px" alt="none naver img">
             Sign in with Naver
         </button>
-    </div>
+    </div> {% endcomment %}
 </div>
 <script>
     const socials = document.querySelectorAll(".social")

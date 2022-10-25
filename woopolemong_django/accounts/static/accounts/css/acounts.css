@@ -4,9 +4,6 @@ a{
     text-decoration-line:none;
 }
 
-label{
-    color:rgb(184, 184, 184);
-}
 
 .signup-deco{
     border-radius: 10px;
@@ -15,7 +12,6 @@ label{
 .login-para{
     font-size:3.5em; 
     text-align:center;
-    /* color: rgb(184, 184, 184); */
 }
 
 .signup-para{
@@ -59,13 +55,14 @@ label{
 
 input::placeholder {
     color: lightgray;
+    padding-left: 4px;
   }
 
 .signup-btn{
   width : 480px; 
   height: 60px; 
   border:none; 
-  background:#B9D0FA;
+  background:#59ADCA;
   border-radius: 5px;
   color : white;
 
@@ -75,15 +72,15 @@ input::placeholder {
     height: 90vh; 
     width:.1vw;
     border-width:0; 
-    color:#B9D0FA; 
-    background-color:#B9D0FA;
+    /* color:#B9D0FA; 
+    background-color:#B9D0FA; */
 }
 
 .signup-submit-btn{
     width : 480px; 
     height:60px; 
     border:none; 
-    background:#B9D0FA;
+    background:#59ADCA;
     border-radius: 5px;
     color : white;
 }
@@ -92,7 +89,4 @@ input::placeholder {
     width:480px;
 }
 
-.para2{
-    color:rgb(184, 184, 184)
-}
 
