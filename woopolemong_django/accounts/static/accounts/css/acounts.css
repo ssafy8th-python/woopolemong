@@ -4,6 +4,10 @@ a{
     text-decoration-line:none;
 }
 
+label{
+    color:#B9D0FA;
+}
+
 .signup-deco{
     border-radius: 10px;
 }
@@ -30,6 +34,8 @@ a{
     width : 480px; 
     height:60px; 
     background:white;
+    border:1px;
+    border:solid;
     border-radius: 5px;
     border-color: #B9D0FA;
 
@@ -38,14 +44,22 @@ a{
 .login-input{
     width : 480px; 
     height:60px;
-    
+    outline: none;
+
+    border:1px;
+    border:solid;
     border-radius: 5px;
-    border-color : #B9D0FA; 
+    border-color : #CFEDF8; 
 } 
 
-#login-input:focus{
-    border-color: #F3DADE; 
+.login-input:focus{
+
+    border-color : #F3DADE; 
 }
+
+input::placeholder {
+    color: lightgray;
+  }
 
 .signup-btn{
   width : 480px; 
@@ -53,6 +67,8 @@ a{
   border:none; 
   background:#B9D0FA;
   border-radius: 5px;
+  color : white;
+
 }
 
 .vertical-line{
@@ -69,5 +85,14 @@ a{
     border:none; 
     background:#B9D0FA;
     border-radius: 5px;
-
+    color : white;
 }
+
+.img-box{
+    width:480px;
+}
+
+.para2{
+    color:#B9D0FA
+}
+

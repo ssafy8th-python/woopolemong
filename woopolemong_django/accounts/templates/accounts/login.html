@@ -10,15 +10,14 @@
         <p class="login-para">Login</p>
         <form action="" method="POST"  >
             {% csrf_token %}
-
             <label for="id_username">Name</label>
             <br>
-            <input type="text"  name="username" placeholder="Name" class="mt-2 mb-4 login-input " >
+            <input type="text"  name="username" placeholder="Name" class="mt-2 mb-4 login-input " required>
             <br>
 
             <label for="id_password">PASSWORD</label>
             <br>
-            <input type="password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " >
+            <input type="password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " required>
             <br>
 
             <div class="d-flex justify-content-between">
@@ -34,7 +33,7 @@
             <br>
 
             <div class="d-flex justify-content-center">
-                <p>
+                <p class="para2">
                     Don't have an account? 
                     <a href="{% url 'accounts:signup' %}" >Create account</a>
                 </p>  
