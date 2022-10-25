@@ -36,6 +36,33 @@ section{
     color: white;
 }
 
+.index_main_text .sub:hover{
+    animation-name:sub_title_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    
+
+}
+@keyframes sub_title_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+}
+
+.index_main_text:hover{
+    animation-name:main_title_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    
+}
+@keyframes main_title_change{
+    from{font-size: 5.5rem;}
+    to{font-size: 6.5rem}
+}
+
 .sub{
     font-size: 2rem;
     letter-spacing: 1px;
