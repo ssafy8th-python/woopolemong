@@ -41,7 +41,6 @@ def create(request):
             for photo in request.FILES.getlist('image'):
                 request.FILES['image'] = photo
                 image_form = Portfolio_imageForm(request.POST, request.FILES)
-                print(photo, type(photo))
                 if image_form.is_valid():
                     image = image_form.save(commit=False)
                     image.portfolio = portfolio
@@ -56,7 +55,7 @@ def create(request):
         }
         return render(request, 'portfolios/create.html', context)
     else:
-        return redirect('portfolios:index')
+        return redirect('portfolios:projectlist')
 
 
 @require_http_methods(['GET', 'POST'])
@@ -68,13 +67,10 @@ def update(request, portfolio_pk):
             form = PortfolioForm(request.POST, instance=portfolio)
             if form.is_valid():
                 form.save()
-                image_form.save()
-            
             # 이미지
             for photo in request.FILES.getlist('image'):
                 request.FILES['image'] = photo
                 image_form = Portfolio_imageForm(request.POST, request.FILES)
-                print(photo, type(photo))
                 if image_form.is_valid():
                     image = image_form.save(commit=False)
                     image.portfolio = portfolio
@@ -89,10 +85,11 @@ def update(request, portfolio_pk):
                 'form': form,
                 'image_form': image_form,
                 'db_images': db_images,
+                'portfolio': portfolio,
             }
         return render(request, 'portfolios/update.html', context)
     else:
-        return redirect('portfolios:index')
+        return redirect('portfolios:detail', portfolio.pk)
 
 
 @require_POST
@@ -101,9 +98,10 @@ def delete(request, portfolio_pk):
     if request.user == portfolio.author:
         if request.method == 'POST':
             portfolio.delete()
-            return redirect('portfolios:index')
+            return redirect('portfolios:projectlist')
     else:
         return redirect('portfolios:detail', portfolio.pk)
+
 
 def projectlist(request) :
     projects = Portfolio.objects.order_by('-pk')
@@ -113,6 +111,7 @@ def projectlist(request) :
     return render(request, 'portfolios/projectlist.html', context)
 
 
+@require_POST
 def image_delete(request, image_pk):
     if request.method == 'POST':
         image = Portfolio_image.objects.get(pk=image_pk)
