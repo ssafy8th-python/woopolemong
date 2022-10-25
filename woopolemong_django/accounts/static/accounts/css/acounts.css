@@ -22,13 +22,9 @@ a{
 }
 
 .login-body{
-    font-family: 'yg-jalnan';
     max-height: 85vh;
 }
 
-.signup-body{
-    font-family: 'yg-jalnan';
-}
 
 .social{
     width : 480px; 
@@ -63,8 +59,8 @@ a{
     height: 90vh; 
     width:.1vw;
     border-width:0; 
-    color:#000; 
-    background-color:#F3DADE;
+    color:#B9D0FA; 
+    background-color:#B9D0FA;
 }
 
 .signup-submit-btn{
