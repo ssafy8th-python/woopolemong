@@ -22,5 +22,7 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('signout/', views.signout, name='signout'),
+    path('management/<int:page>/', views.management, name='management'),
+    path('management/authority/<int:user_pk>/<int:cur_page>/', views.change_authority, name='change_authority'),
     path('findpassword/', views.findpassword, name='findpassword'),
 ]
