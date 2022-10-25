@@ -36,7 +36,37 @@
     <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
     <br>
   </form>
+  <form action="#" method="POST">
+    {% csrf_token %}
+    {% for image in db_images %}
+      
+      <p>{{ image.image }}</p>
+      <button id="image_delete" data-pk={{ image.pk }}>삭제</button>
+    {% endfor %}
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const imageDelete = document.querySelectorAll('#image_delete')
 
+    imageDelete.forEach((elem) => {
+      elem.addEventListener('click', (event)=>{
+        event.preventDefault()
+
+        axios({
+          method: 'POST',
+          url: `/portfolios/image/${elem.dataset.pk}/delete/`,
+          headers: {'X-CSRFToken': csrftoken}
+        })
+        .then((re)=>{console.log(re)})          
+        .catch((e)=>{console.log(e)})
+
+        const imageName = document.querySelector(`#${elem.dataset.pk}`)
+        imageName.remove()
+      })
+    })
+    
+  </script>
   
 </div>
 {% endblock content %}

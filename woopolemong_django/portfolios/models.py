@@ -1,3 +1,4 @@
+# import os
 from imagekit.processors import Thumbnail
 from imagekit.models import ProcessedImageField, ImageSpecField
 from django.db import models
@@ -25,3 +26,7 @@ class Portfolio_image(models.Model):
         format='JPEG',
         options={'quality': 80},
     )
+    # def delete(self, *args, **kargs):
+    #     if self.image:
+    #         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.path))
+    #     super(Portfolio_image, self).delete(*args, **kargs)

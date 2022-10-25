@@ -18,7 +18,6 @@ class PortfolioForm(forms.ModelForm):
             }
         )
     )
-
     content = forms.CharField(
         widget=CKEditorUploadingWidget(
             attrs={
@@ -27,7 +26,6 @@ class PortfolioForm(forms.ModelForm):
             }
         ))
         
-
     class Meta:
         model = Portfolio
         exclude = [('author'),]
@@ -38,7 +36,8 @@ class Portfolio_imageForm(forms.ModelForm):
             attrs={
                 'multiple':True,
             }
-        )
+        ),
+        required=False
     )
     class Meta:
         model = Portfolio_image

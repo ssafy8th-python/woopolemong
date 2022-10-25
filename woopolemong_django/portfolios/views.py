@@ -1,6 +1,7 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_safe, require_http_methods, require_POST
-from .models import Portfolio
+from .models import Portfolio, Portfolio_image
 from .forms import PortfolioForm, Portfolio_imageForm
 # Create your views here.
 
@@ -31,13 +32,12 @@ def create(request):
         if request.method == 'POST':
             # 게시글
             form = PortfolioForm(request.POST)
-            
-            # print(request.FILES.getlist('image'))
             if form.is_valid():
                 portfolio = form.save(commit=False)
                 portfolio.author = request.user
                 portfolio.save()
-                # 이미지
+
+            # 이미지
             for photo in request.FILES.getlist('image'):
                 request.FILES['image'] = photo
                 image_form = Portfolio_imageForm(request.POST, request.FILES)
@@ -64,17 +64,31 @@ def update(request, portfolio_pk):
     portfolio = Portfolio.objects.get(pk=portfolio_pk)
     if request.user == portfolio.author:
         if request.method == 'POST':
+            # 게시글
             form = PortfolioForm(request.POST, instance=portfolio)
-            image_form = Portfolio_imageForm(request.POST, request.FILES, instance=portfolio.portfolio_image_set.all())
-            if form.is_valid() and image_form.is_valid():
+            if form.is_valid():
                 form.save()
                 image_form.save()
-                return redirect('portfolios:detail', portfolio.pk)
+            
+            # 이미지
+            for photo in request.FILES.getlist('image'):
+                request.FILES['image'] = photo
+                image_form = Portfolio_imageForm(request.POST, request.FILES)
+                print(photo, type(photo))
+                if image_form.is_valid():
+                    image = image_form.save(commit=False)
+                    image.portfolio = portfolio
+                    image.save()
+            return redirect('portfolios:detail', portfolio.pk)
         else:
             form = PortfolioForm(instance=portfolio)
-            image_form = Portfolio_imageForm(instance=portfolio.portfolio_image_set.all())
+            image_form = Portfolio_imageForm()
+            db_images = portfolio.portfolio_image_set.all()
+            
         context = {
                 'form': form,
+                'image_form': image_form,
+                'db_images': db_images,
             }
         return render(request, 'portfolios/update.html', context)
     else:
@@ -97,3 +111,13 @@ def projectlist(request) :
         'projects' : projects,
     }
     return render(request, 'portfolios/projectlist.html', context)
+
+
+def image_delete(request, image_pk):
+    if request.method == 'POST':
+        image = Portfolio_image.objects.get(pk=image_pk)
+        image.delete()
+        data = {
+            'header': 'sadf'
+        }
+        return JsonResponse(data)
