@@ -40,7 +40,7 @@
     {% csrf_token %}
     {% for image in db_images %}
       
-      <p>{{ image.image }}</p>
+      <p id=i{{ image.pk }}>{{ image.image }}</p>
       <button id="image_delete" data-pk={{ image.pk }}>삭제</button>
     {% endfor %}
   </form>
@@ -58,11 +58,13 @@
           url: `/portfolios/image/${elem.dataset.pk}/delete/`,
           headers: {'X-CSRFToken': csrftoken}
         })
-        .then((re)=>{console.log(re)})          
+        .then((re)=>{console.log(re)
+          const imageName = document.querySelector(`#i${elem.dataset.pk}`)
+          imageName.remove()
+          elem.remove()
+        })          
         .catch((e)=>{console.log(e)})
 
-        const imageName = document.querySelector(`#${elem.dataset.pk}`)
-        imageName.remove()
       })
     })
     
