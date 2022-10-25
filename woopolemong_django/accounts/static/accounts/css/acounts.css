@@ -5,7 +5,7 @@ a{
 }
 
 label{
-    color:#B9D0FA;
+    color:rgb(184, 184, 184);
 }
 
 .signup-deco{
@@ -15,7 +15,7 @@ label{
 .login-para{
     font-size:3.5em; 
     text-align:center;
-    color: #B9D0FA;
+    /* color: rgb(184, 184, 184); */
 }
 
 .signup-para{
@@ -49,7 +49,7 @@ label{
     border:1px;
     border:solid;
     border-radius: 5px;
-    border-color : #CFEDF8; 
+    border-color : #B9D0FA; 
 } 
 
 .login-input:focus{
@@ -93,6 +93,6 @@ input::placeholder {
 }
 
 .para2{
-    color:#B9D0FA
+    color:rgb(184, 184, 184)
 }
 
