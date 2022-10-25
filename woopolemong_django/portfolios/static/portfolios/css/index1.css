@@ -17,10 +17,24 @@ section{
     background-image: url('../img/index_main.png');
     position: relative;
     max-width: 100%;
-    height: auto;
+    height: 50%;
     filter: brightness(50%);
     /* opacity: 0.5; */
 }
+
+/* #index_main_img:hover{
+    animation-name:main_change;
+    animation-duration:10s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+}
+
+@keyframes main_change{
+    from{filter: brightness(50%);}
+    to{filter: brightness(70%);}
+} */
+
 
 .index_main_text{
     width: 100%;
@@ -42,9 +56,9 @@ section{
     animation-fill-mode:forwards;
     animation-iteration-count:infinite;
     animation-direction: alternate;
-    
-
+   
 }
+
 @keyframes sub_title_change{
     from{filter: brightness(100%);}
     to{filter: brightness(70%);}
@@ -93,6 +107,17 @@ section{
     border: 10px solid rgba(0, 0, 0, 0.1);
 }
 
+.team_member img:hover{
+    animation-name:team_member_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes team_member_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+}
+
 .team_member h4{
     font-family: 'yg-jalnan';
     font-size: 3rem;
@@ -123,6 +148,18 @@ section{
 }
 
 .collection{
-    height: 100%;
-    width: auto;
+    max-width: 80%;
+    height: auto;
+}
+
+.collection:hover{
+    animation-name:collection_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+   
+}
+
+@keyframes collection_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
 }
