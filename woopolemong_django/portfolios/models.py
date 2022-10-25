@@ -11,6 +11,7 @@ class Portfolio(models.Model):
     category = models.CharField(max_length=20)
     title = models.CharField(max_length=100)
     content = RichTextUploadingField()
+    p_link = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
