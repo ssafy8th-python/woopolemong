@@ -14,32 +14,33 @@
     </div></nav><br>
  
 
-  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data" class="container-fluid">
+  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    
-    <nav class="navbar navbar-light">
-      <div class="container-fluid">
-        <p class = 'Write_2'>카테고리 {{ form.category }}</p>
-        <p class = 'Write_2'>제목: {{ form.title }}</p>
-      </div>
-    </nav>
-    
+    <p class = 'Write_2'>카테고리 : {{ form.category }} </p>
     <br>
-    <div class="container-fluid">
-      <p class = 'Write_2'>Content</p>
-      {{ form.media }}
-      {{ form.content|safe }}
-      <br>
-      <br>
-      <p>
-        프로젝트 링크 : {{ form.p_link }}
-      </p>
+    <p style='margin-bottom:0'> 제목: {{ form.title }}</p>
+    <br>
+    <p class = 'Write_2'>Content</p>
+    {{ form.media }}
+    {{ form.content|safe }}
+    <br>
+    <br>
+    <p>
+      프로젝트 링크 : {{ form.p_link }}
+    </p>
 
-      <br><br>
-      {{ image_form.as_p }}
-      <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
-      <br>
-    </div>
+
+
+    <br>
+    {{ image_form.as_p }}
+
+    {% comment %} <div class="mb-3">
+      <input class="form-control form-control-sm" id="formFileSm" type="file">
+    </div> <br> {% endcomment %}
+    <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
+    <br>
   </form>
+
+  
 </div>
 {% endblock content %}
