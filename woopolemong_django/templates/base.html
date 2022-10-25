@@ -32,6 +32,11 @@
               {% csrf_token %}
               <button class="nav-link bg-light" style="border:none;">로그아웃</button>
             </form>
+            {% if request.user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'accounts:management' 1 %}">관리자 페이지</a>
+            </li>
+            {% endif %}
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
