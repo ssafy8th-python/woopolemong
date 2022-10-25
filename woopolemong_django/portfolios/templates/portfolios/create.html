@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block content %}
   <link rel="stylesheet" href="{% static 'portfolios/css/create.css' %}">
 <br><br>
@@ -12,35 +10,34 @@
       <p class = 'Write'> Write</p>
       <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
     </div></nav><br>
- 
 
-  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data">
+
+  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data" class="container-fluid">
     {% csrf_token %}
-    <p class = 'Write_2'>카테고리 : {{ form.category }} </p>
-    <br>
-    <p style='margin-bottom:0'> 제목: {{ form.title }}</p>
-    <br>
-    <p class = 'Write_2'>Content</p>
-    {{ form.media }}
-    {{ form.content|safe }}
-    <br>
-    <br>
-    <p>
-      프로젝트 링크 : {{ form.p_link }}
-    </p>
 
-
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <p class = 'Write_2'>카테고리 {{ form.category }}</p>
+        <p class = 'Write_2'>제목: {{ form.title }}</p>
+      </div>
+    </nav>
 
     <br>
-    {{ image_form.as_p }}
+    <div class="container-fluid">
+      <p class = 'Write_2'>Content</p>
+      {{ form.media }}
+      {{ form.content|safe }}
+      <br>
+      <br>
+      <p>
+        프로젝트 링크 : {{ form.p_link }}
+      </p>
 
-    {% comment %} <div class="mb-3">
-      <input class="form-control form-control-sm" id="formFileSm" type="file">
-    </div> <br> {% endcomment %}
-    <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
-    <br>
+      <br><br>
+      {{ image_form.as_p }}
+      <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
+      <br>
+    </div>
   </form>
-
-  
 </div>
 {% endblock content %}
