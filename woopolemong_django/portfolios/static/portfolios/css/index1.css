@@ -22,6 +22,20 @@ section{
     /* opacity: 0.5; */
 }
 
+/* #index_main_img:hover{
+    animation-name:main_change;
+    animation-duration:10s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+}
+
+@keyframes main_change{
+    from{filter: brightness(50%);}
+    to{filter: brightness(70%);}
+} */
+
+
 .index_main_text{
     width: 100%;
     font-family: 'yg-jalnan';
@@ -45,6 +59,7 @@ section{
     
 
 }
+
 @keyframes sub_title_change{
     from{filter: brightness(100%);}
     to{filter: brightness(70%);}
@@ -123,6 +138,18 @@ section{
 }
 
 .collection{
-    height: 100%;
-    width: auto;
+    width: 40%;
+    height: auto;
+}
+
+.collection:hover{
+    animation-name:collection_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+   
+}
+
+@keyframes collection_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
 }
