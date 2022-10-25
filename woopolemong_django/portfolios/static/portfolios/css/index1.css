@@ -50,6 +50,9 @@ section{
     color: white;
 }
 
+
+
+
 .index_main_text .sub:hover{
     animation-name:sub_title_change;
     animation-duration:1s;
@@ -73,8 +76,10 @@ section{
     
 }
 @keyframes main_title_change{
-    from{font-size: 5.5rem;}
-    to{font-size: 6.5rem}
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+    /* from{font-size: 5.5rem;}
+    to{font-size: 6.5rem} */
 }
 
 .sub{
@@ -82,6 +87,8 @@ section{
     letter-spacing: 1px;
     color: rgb(184, 184, 184);
 }
+
+
 
 .sub span{
     font-size:2.5rem;
@@ -92,7 +99,7 @@ section{
     font-family: 'yg-jalnan';
     text-align: center;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
     font-size: 4rem;
 }
 
@@ -162,4 +169,23 @@ section{
 @keyframes collection_change{
     from{filter: brightness(100%);}
     to{filter: brightness(70%);}
+}
+
+
+@media (max-width: 1000px) {
+    .index_main_text {
+        font-size: 3.5rem;
+    }
+    .sub {
+        font-size: 1rem;
+    }
+    .sub span{
+        font-size: 1.5rem
+    }
+    .section_head {
+        font-size: 3rem;
+    }
+    .introduce p {
+        font-size: 1.5rem
+    }
 }
