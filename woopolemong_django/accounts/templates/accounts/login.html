@@ -3,51 +3,57 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'accounts/css/acounts.css' %}">
-<div class="login-body d-flex justify-content-evenly align-items-center">
+<div class="login-body d-flex justify-content-center align-items-center">
   {% comment %} 로그인폼 {% endcomment %}
-    <div> 
+    <div class="box" > 
 
-        <p class="login-para">Login</p>
+        <p class="login-para">로그인</p>
         <form action="" method="POST"  >
             {% csrf_token %}
-            <label for="id_username">Name</label>
             <br>
-            <input type="text"  name="username" placeholder="Name" class="mt-2 mb-4 login-input " required>
+            <input type="text" id="id_username" name="username" placeholder="사용자 이름" class="mt-2 mb-4 login-input " required>
             <br>
 
-            <label for="id_password">PASSWORD</label>
             <br>
-            <input type="password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " required>
+            <input type="password" id="id_password" name="password" placeholder="비밀번호" class=" mt-2 mb-3 login-input " required>
             <br>
 
             <div class="d-flex justify-content-between">
                 <div>
                     <input type="checkbox" id="remeber">
-                    <label for="remeber">Remember me</label>        
+                    <label for="remeber">기억하기</label>        
                 </div>
                 
-                <a href="">Forgot your password?</a>
+                <a href="">비밀번호 찾기</a>
             </div>
 
-            <input type="submit" value="Sign in" class="signup-btn my-4">
+            <input type="submit" value="로그인" class="signup-btn my-4">
             <br>
 
             <div class="d-flex justify-content-center">
                 <p class="para2">
-                    Don't have an account? 
-                    <a href="{% url 'accounts:signup' %}" >Create account</a>
+                    
+                    <a href="{% url 'accounts:signup' %}" >계정 생성하기</a>
                 </p>  
             </div>
             
         </form>
         
+        {% comment %} 소셜로그인폼 {% endcomment %}  
+
+        <div class="social-login d-flex justify-content-around">
+            <button class="social"><img src="{% static 'accounts/img/icons/google-icon.png' %}" alt="none google img" class="social-img"></button>
+            <button class="social"><img src="{% static 'accounts/img/icons/facebook-icon.png' %}" alt="none facebook img" class="social-img"></button>
+            <button class="social"><img src="{% static 'accounts/img/icons/kakao-icon.png' %}"  alt="none kakao img" class="social-img"></button>
+
+        </div>
+
   </div>
 
-        <div class="vertical-line"></div>
 
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
-    <div>
+    {% comment %} <div>
         <button class=" mb-4 social"> 
             <img src="{% static 'accounts/img/icons/facebook-icon.png' %}" width ="40px" alt="none facebook img">
             &nbsp; Sign in with Facebook
@@ -67,7 +73,7 @@
             <img src="{% static 'accounts/img/icons/naver-icon.png' %}" width ="40px" alt="none naver img">
             Sign in with Naver
         </button>
-    </div>
+    </div> {% endcomment %}
 </div>
 <script>
     const socials = document.querySelectorAll(".social")
