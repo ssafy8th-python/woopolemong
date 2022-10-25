@@ -17,19 +17,16 @@
         {% endif %}
         <a style="background-color: yellowgreen;color:black; margin-left:15px;"href="{% url 'portfolios:projectlist' %}"> 돌아가기 </a>
         <br>
-
         <hr>
-        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content|safe }}</p> 
         <div>
-
-        {% for image in images %}
-            <img src="{{ image.image.url }}" alt="none" width="600" height="500">
-        {% endfor %}
-
+          {% for image in images %}
+              <img src="{{ image.image.url }}" alt="none" width="600" height="500">
+          {% endfor %}
         </div>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content|safe }}</p> 
         <hr>
-<!--         <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ portfolio.p_link }}</p>  -->
-            # 추후 해당 프로젝트 등록된 깃허브 링크 작성
+        <p style="margin-top:20px;text-align:center;">  프로젝트 링크 : {{ portfolio.p_link }}</p>
+            {% comment %} # 추후 해당 프로젝트 등록된 깃허브 링크 작성 {% endcomment %}
 
         
         <br>

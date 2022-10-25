@@ -2,41 +2,41 @@
 {% load static %}
 
 {% block content %}
-<div class="d-flex justify-content-evenly align-items-center" style="max-height: 90vh;">
+<link rel="stylesheet" href="{% static 'accounts/css/acounts.css' %}">
+<div class="login-body d-flex justify-content-evenly align-items-center">
   {% comment %} 로그인폼 {% endcomment %}
-    <div > 
-        <h1 style="text-align:center;">Woopolemong</h1>
-        <p style="font-size:30px; text-align:center;">Login</p>
+    <div> 
+
+        <p class="login-para">Login</p>
         <form action="" method="POST"  >
             {% csrf_token %}
 
             <label for="id_username">Name</label>
             <br>
-            <input type="text" id="id_username" name="username" placeholder="Name" class="mt-2 mb-4 " style="width : 480px; height:50px">
+            <input type="text"  name="username" placeholder="Name" class="mt-2 mb-4 login-input " >
             <br>
 
             <label for="id_password">PASSWORD</label>
             <br>
-            <input type="password" id="id_password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3" style="width : 480px; height:50px">
+            <input type="password" name="password" placeholder="PASSWORD" class=" mt-2 mb-3 login-input " >
             <br>
 
-            <div class="d-flex justify-content-between"
-            >
+            <div class="d-flex justify-content-between">
                 <div>
                     <input type="checkbox" id="remeber">
                     <label for="remeber">Remember me</label>        
                 </div>
                 
-                <a href="" style="color:#59ADCA; text-decoration-line:none;">Forgot your password?</a>
+                <a href="">Forgot your password?</a>
             </div>
 
-            <input type="submit" value="Sign in" style="width : 480px; height:50px; border:none; background:#CFEDF8" class="my-4">
+            <input type="submit" value="Sign in" class="signup-btn my-4">
             <br>
 
             <div class="d-flex justify-content-center">
                 <p>
                     Don't have an account? 
-                    <a href="{% url 'accounts:signup' %}" style="color:#59ADCA; text-decoration-line:none;">Create account</a>
+                    <a href="{% url 'accounts:signup' %}" >Create account</a>
                 </p>  
             </div>
             
@@ -44,27 +44,27 @@
         
   </div>
 
-        <div style="height: 90vh; width:.1vw; border-width:0; color:#000; background-color:#D9D9D9;"></div>
+        <div class="vertical-line"></div>
 
 
   {% comment %} 소셜로그인폼 {% endcomment %}  
     <div>
-        <button style="width : 480px; height:60px; background:white" class="mb-4 social"> 
+        <button class=" mb-4 social"> 
             <img src="{% static 'accounts/img/icons/facebook-icon.png' %}" width ="40px" alt="none facebook img">
             &nbsp; Sign in with Facebook
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white" class="mb-4 social">
+        <button class="mb-4 social">
             <img src="{% static 'accounts/img/icons/google-icon.png' %}" width ="40px" alt="none google img">
             Sign in with Google
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white" class="mb-4 social">
+        <button class="mb-4 social">
             <img src="{% static 'accounts/img/icons/kakao-icon.png' %}" width ="40px" alt="none kakao img">
             &nbsp; Sign in with Kakao
         </button>
         <br>
-        <button style="width : 480px; height:60px; background:white" class= "social">
+        <button class= "social">
             <img src="{% static 'accounts/img/icons/naver-icon.png' %}" width ="40px" alt="none naver img">
             Sign in with Naver
         </button>

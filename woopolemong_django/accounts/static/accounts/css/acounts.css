@@ -1,0 +1,77 @@
+
+a{
+    color:#59ADCA; 
+    text-decoration-line:none;
+}
+
+.signup-deco{
+    border-radius: 10px;
+}
+
+.login-para{
+    font-size:3.5em; 
+    text-align:center;
+    color: #B9D0FA;
+}
+
+.signup-para{
+    margin-bottom:4px;
+    color: #B9D0FA;
+    font-size:3.5em; 
+
+}
+
+.login-body{
+    font-family: 'yg-jalnan';
+    max-height: 85vh;
+}
+
+.signup-body{
+    font-family: 'yg-jalnan';
+}
+
+.social{
+    width : 480px; 
+    height:60px; 
+    background:white;
+    border-radius: 5px;
+    border-color: #B9D0FA;
+
+}
+
+.login-input{
+    width : 480px; 
+    height:60px;
+    
+    border-radius: 5px;
+    border-color : #B9D0FA; 
+} 
+
+#login-input:focus{
+    border-color: #F3DADE; 
+}
+
+.signup-btn{
+  width : 480px; 
+  height: 60px; 
+  border:none; 
+  background:#B9D0FA;
+  border-radius: 5px;
+}
+
+.vertical-line{
+    height: 90vh; 
+    width:.1vw;
+    border-width:0; 
+    color:#000; 
+    background-color:#F3DADE;
+}
+
+.signup-submit-btn{
+    width : 480px; 
+    height:60px; 
+    border:none; 
+    background:#B9D0FA;
+    border-radius: 5px;
+
+}

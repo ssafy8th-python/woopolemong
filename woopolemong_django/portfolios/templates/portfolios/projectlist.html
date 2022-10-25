@@ -27,6 +27,7 @@
 <div class="card">
   <div class="card-body">
   <h1><a href="{% url "portfolios:detail" project.pk %}">{{ project.title }}</a></h1>
+  <p><h3>{{ project.content|safe }}</h3></p>
   <p>{{ project.created_at }}</p>
   </div>
 </div>
