@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'portfolios/css/create.css' %}">
+<br><br>
+<div class="container">
+  
+  <nav class="navbar navbar-light" style="background-color: #ffe7fe;">
+    <div class="container-fluid">
+      <p class = 'Write'> Write</p>
+      <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
+    </div></nav><br>
+ 
+
+  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class = 'Write_2'>카테고리 {{ form.category }} &emsp; &nbsp; 제목: {{ form.title }}</p>
+    
+    <br>
+    <p class = 'Write_2'>Content</p>
+    {{ form.media }}
+    {{ form.content|safe }}
+    <br>
+    <br>
+    <p>
+      프로젝트 링크 : {{ form.p_link }}
+    </p>
+    <br><br>
+    {{ image_form.as_p }}
+
+    {% comment %} <div class="mb-3">
+      <input class="form-control form-control-sm" id="formFileSm" type="file">
+    </div> <br> {% endcomment %}
+    <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
+    <br>
+  </form>
+
+  
+</div>
+{% endblock content %}
