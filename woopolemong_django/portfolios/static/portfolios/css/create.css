@@ -5,6 +5,9 @@
   font-style: normal;
 }
 
+.navbar{
+  border-radius: 20px / 20px;
+}
 
 .Write{
   font-family: 'yg-jalnan';
