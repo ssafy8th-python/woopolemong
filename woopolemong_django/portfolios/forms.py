@@ -25,6 +25,8 @@ class PortfolioForm(forms.ModelForm):
                 'placeholder':'내용을 입력해주세요.',
             }
         ))
+    
+    p_link = forms.CharField(required=False)
         
     class Meta:
         model = Portfolio
