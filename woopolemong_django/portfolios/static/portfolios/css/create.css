@@ -31,9 +31,13 @@
 
 
 .Title_input{
-  width: 920px;
+  width: 94%;
 }
 
-/* .Content_input{
-  width: 1015px;
-} */
+#cke_id_content{
+  width: 100% !important;
+}
+
+.django-ckeditor-widget{
+  width: 100%;
+}

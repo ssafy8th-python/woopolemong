@@ -16,10 +16,8 @@
     {% csrf_token %}
 
     <nav class="navbar navbar-light">
-      <div class="container-fluid">
-        <p class = 'Write_2'>카테고리 {{ form.category }}</p>
-        <p class = 'Write_2'>제목: {{ form.title }}</p>
-      </div>
+      <div class = 'ms-2 Write_2'>카테고리 {{ form.category }}</div>
+      <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
     </nav>
 
     <br>
