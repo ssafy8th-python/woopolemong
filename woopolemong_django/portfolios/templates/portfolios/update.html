@@ -7,7 +7,7 @@
 <br><br>
 <div class="container">
   
-  <nav class="navbar navbar-light" style="background-color: #ffe7fe;">
+  <nav class="navbar navbar-light" style="background-color: #ffbdbd;">
     <div class="container-fluid">
       <p class = 'Write'> Write</p>
       <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
@@ -16,8 +16,11 @@
 
   <form action="{% url 'portfolios:update' portfolio.pk %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <p class = 'Write_2'>카테고리 {{ form.category }} &emsp; &nbsp; 제목: {{ form.title }}</p>
-    
+    <div class="flex-container">
+      <div class = 'ms-2 Write_2'>카테고리 {{ form.category }}</div>
+      <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
+    </div>
+
     <br>
     <p class = 'Write_2'>Content</p>
     {{ form.media }}
@@ -28,12 +31,10 @@
       프로젝트 링크 : {{ form.p_link }}
     </p>
     <br><br>
-    {{ image_form.as_p }}
-
-    {% comment %} <div class="mb-3">
-      <input class="form-control form-control-sm" id="formFileSm" type="file">
-    </div> <br> {% endcomment %}
-    <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
+    <div class="flex-container">
+      <div>{{ image_form.as_p }}</div>
+      <div><p class = 'Write_3'><button class='btn btn-lg' style="background-color: #bbe3ff;">제출</button></div>
+    </div>
     <br>
   </form>
   <form action="#" method="POST">
