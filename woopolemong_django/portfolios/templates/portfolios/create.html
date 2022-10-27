@@ -5,7 +5,7 @@
 <br><br>
 <div class="container">
   
-  <nav class="navbar" style="background-color: #ffe7fe;">
+  <nav class="navbar" style="background-color: #ffbdbd;">
     <div class="container-fluid">
       <p class = 'Write'> Write</p>
       <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
@@ -15,10 +15,10 @@
   <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data" class="container-fluid">
     {% csrf_token %}
 
-    <nav class="navbar navbar-light">
+    <div class="flex-container">
       <div class = 'ms-2 Write_2'>카테고리 {{ form.category }}</div>
       <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
-    </nav>
+    </div>
 
     <br>
     <div class="container-fluid">
@@ -32,9 +32,13 @@
       </p>
 
       <br><br>
-      {{ image_form.as_p }}
-      <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p>
-      <br>
+
+      <div class="flex-container">
+        <div>{{ image_form.as_p }}</div>
+        <div><p class = 'Write_3'><button class='btn btn-lg' style="background-color: #bbe3ff;">제출</button></div>
+      {% comment %} <p class = 'Write_3'><input type="submit" style="background-color: #e3f2fd;"></p> {% endcomment %}
+      </div>
+
     </div>
   </form>
 </div>

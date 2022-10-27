@@ -26,7 +26,7 @@
 
 .Write_3{
   font-family: 'yg-jalnan';
-  font-size: 1.2rem;
+  font-size: 2rem;
   
   margin-top: 0.15rem;
   margin-bottom: 0.15rem;
@@ -43,4 +43,10 @@
 
 .django-ckeditor-widget{
   width: 100%;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
 }
