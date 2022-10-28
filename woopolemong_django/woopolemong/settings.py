@@ -160,7 +160,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
-            ['Format', 'Font', 'FontSize'],
+            ['Format', 'Font', b'FontSize'],
             ['Bold', 'Italic', 'Underline'],
             ['TextColor','BGColor'],
             ['NumberedList', 'BulletedList'],
