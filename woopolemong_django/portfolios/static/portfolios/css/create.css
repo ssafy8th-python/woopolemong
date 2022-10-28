@@ -20,7 +20,7 @@
 .Write_2{
   font-family: 'yg-jalnan';
   font-size: 1.1rem;
-  color: rgb(0, 0, 0);
+  color: #000000;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;}
 
@@ -49,4 +49,28 @@
 .flex-container {
   display: flex;
   justify-content: space-between;
+}
+
+.flex-image{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.image-line{
+  display: flex;
+  justify-content: start;
+}
+
+#image_delete{
+  border: 2px solid #949494;
+  color: #949494;
+  border-radius: 5px;
+}
+
+#image_delete:hover{
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 5px;
 }

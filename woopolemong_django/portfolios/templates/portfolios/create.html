@@ -14,9 +14,8 @@
 
   <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data" class="container-fluid">
     {% csrf_token %}
-
     <div class="flex-container">
-      <div class = 'ms-2 Write_2'>카테고리 {{ form.category }}</div>
+      <div class = 'ms-2 Write_2' style="margin-top:8px;">카테고리 {{ form.category }}</div>
       <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
     </div>
 
@@ -41,4 +40,5 @@
     </div>
   </form>
 </div>
+
 {% endblock content %}

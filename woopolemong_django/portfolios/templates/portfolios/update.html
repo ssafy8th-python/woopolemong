@@ -17,7 +17,7 @@
   <form action="{% url 'portfolios:update' portfolio.pk %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="flex-container">
-      <div class = 'ms-2 Write_2'>카테고리 {{ form.category }}</div>
+      <div class = 'ms-2 Write_2' style="margin-top:8px;">카테고리 {{ form.category }}</div>
       <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
     </div>
 
@@ -37,13 +37,24 @@
     </div>
     <br>
   </form>
-  <form action="#" method="POST">
-    {% csrf_token %}
-    {% for image in db_images %}
-      
-      <p id=i{{ image.pk }}>{{ image.image }}</p>
-      <button id="image_delete" data-pk={{ image.pk }}>삭제</button>
-    {% endfor %}
+
+  <br>
+  {% if db_images %}
+    <div class="image-box" style = "border:0.5px solid #c7c7c7; border-radius: 5px; padding: 10px;”>
+      <form action="#" method="POST">
+        {% csrf_token %}
+        {% for image in db_images %}
+        <div class="image-line">
+          <div style="margin-top:8px;"><span id=i{{ image.pk }}>{{ image.image }}</span></div>
+          <div style="margin-top:8px;"> &nbsp;&nbsp; <button id="image_delete" data-pk={{ image.pk }}>삭제</button></div>
+        </div>
+        {% endfor %}
+    </div>
+  {% endif %}
+
+  
+
+
   </form>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
