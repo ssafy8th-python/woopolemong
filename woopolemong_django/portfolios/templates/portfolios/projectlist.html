@@ -13,9 +13,9 @@
     </div>
     <div class="col" style="text-align:right;">
       {% if request.user.is_authenticated %}
-        <a href="{% url 'portfolios:create' %}" class="btn btn-secondary btn-sm">글쓰기</a>
+        <a href="{% url 'portfolios:create' %}" class="btn btn-secondary btn-md">글쓰기</a> &nbsp;
       {% endif %}
-      <a href="{% url 'portfolios:index' %}" class="btn btn-secondary btn-sm">돌아가기</a>
+      <a href="{% url 'portfolios:index' %}" class="btn btn-secondary btn-md">돌아가기</a>
     </div>
 
   </div>

@@ -15,33 +15,34 @@
         
         <form action="{% url 'portfolios:delete' portfolio.pk %}" method = 'POST' style='display:inline'>
           {% csrf_token %}
-          <button>
+          <button class='btn btn-md' style="background-color: #fac7c5; color: #484848; margin-top: 10px;">
             삭제
           </button>
         </form>
 
+          &nbsp;
         <form action="{% url 'portfolios:update' portfolio.pk %}"style='display:inline'>
-          <button>
+          <button class='btn btn-md' style="background-color: #fac7c5; color: #484848; margin-top: 10px;">
             수정
           </button>
         </form>
           {% comment %} <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'portfolios:update' portfolio.pk %}"> 수정 </a> {% endcomment %}
         {% endif %}
 
+          &nbsp;
         <form action="{% url 'portfolios:projectlist' %}"style='display:inline'>
-          <button>
+          <button class='btn btn-md' style="background-color: #fac7c5; color: #484848; margin-top: 10px;">
             돌아가기
           </button>
         </form>
       
         <br>
         <hr>
-        <div class="container" style='margin: 10px;'>
-          
-          <div class="card mb-3" style='position:flex; left:25%;'>
+        <div class="container" style='justify-content: center;'>
+          {% comment %} position:flex; left:50%; {% endcomment %}
+          <div class="carousel slide carousel-fade" style='margin:0 auto;'>
             <div class="row g-0" >
               <div class="col-md-6">
-
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     {% for image in images %}
@@ -69,10 +70,7 @@
               </div>
               <div class="col-md-6">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ portfolio.content|safe }}</p> 
-                 
-                  
+                  <p style="margin-top:20px; text-align:left;margin-left:320px;"><h4>{{ portfolio.content|safe }}</h4></p> 
                 </div>
               </div>
             </div>
@@ -82,7 +80,7 @@
         </div>
 
         <hr>
-        <p style="margin-top:20px;text-align:center;">  프로젝트 링크 : <a href="{{ portfolio.p_link }}">{{ portfolio.p_link }}</a></p>
+        <p style="margin-top:20px;text-align:center;"> <h6>프로젝트 링크 : <a href="{{ portfolio.p_link }}">{{ portfolio.p_link }}</a></h6></p>
             {% comment %} # 추후 해당 프로젝트 등록된 깃허브 링크 작성 {% endcomment %}
 
         
