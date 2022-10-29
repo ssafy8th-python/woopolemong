@@ -12,7 +12,7 @@ class User(AbstractUser):
     intro = models.TextField(default="")
     my_image = models.ImageField(blank=True, upload_to=user_image_path)
     my_image_thumbnail = ImageSpecField(
-        source='image',
+        source='my_image',
         processors=[Thumbnail(100, 100)],
         format='JPEG',
         options={'quality': 80},
