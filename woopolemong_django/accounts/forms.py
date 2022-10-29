@@ -13,3 +13,9 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         model = get_user_model()
 
+
+class CustomUserChangeImgForm(UserChangeForm):
+
+    class Meta(UserChangeForm.Meta):
+        model = get_user_model()
+        fields = ('my_image',)

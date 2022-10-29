@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.contrib.auth import get_user_model
-from accounts.forms import CustomUserCreationForm
+from accounts.forms import CustomUserCreationForm, CustomUserChangeImgForm
 import random
 
 
@@ -142,10 +142,25 @@ def profile(request, username):
         context = {
             "projects" : user.portfolio_set.all(),
             "username" : user.username,
-            "my_image" : user.my_image,
+            "my_image_thumbnail" : user.my_image_thumbnail,
             "intro" : user.intro,
         }
 
         return render(request, "accounts/profile.html", context)
 
 
+def imageUpload(request, username):
+
+    if request.user.is_authenticated:
+
+        if request.user.username == username:
+
+            form = CustomUserChangeImgForm(request.POST, request.FILES, instance=request.user)
+
+            if form.is_valid():
+                form.save()
+
+            return redirect('accounts:profile', username)
+    
+    return redirect('accounts:login')
+    

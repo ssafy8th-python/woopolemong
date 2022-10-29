@@ -23,6 +23,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('signout/', views.signout, name='signout'),
     path('profile/<str:username>/', views.profile, name='profile'),
+    path('profile/<str:username>/imageUpload/', views.imageUpload, name='imageUpload'),
     path('management/<int:page>/', views.management, name='management'),
     path('management/authority/<int:user_pk>/<int:cur_page>/', views.change_authority, name='change_authority'),
     path('findpassword/', views.findpassword, name='findpassword'),

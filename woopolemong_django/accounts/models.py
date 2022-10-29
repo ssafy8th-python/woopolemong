@@ -7,13 +7,13 @@ from imagekit.models import ImageSpecField
 class User(AbstractUser):
 
     def user_image_path(instance, filename):
-        return f'images/{instance.user.username}/{filename}'
+        return f'images/{instance.username}/{filename}'
 
     intro = models.TextField(default="")
     my_image = models.ImageField(blank=True, upload_to=user_image_path)
     my_image_thumbnail = ImageSpecField(
         source='my_image',
-        processors=[Thumbnail(100, 100)],
+        processors=[Thumbnail(200, 200)],
         format='JPEG',
         options={'quality': 80},
     )
