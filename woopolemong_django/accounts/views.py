@@ -4,6 +4,7 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.contrib.auth import get_user_model
 from accounts.forms import CustomUserCreationForm, CustomUserChangeImgForm
+from django.contrib.auth.decorators import login_required
 import random
 
 
@@ -78,6 +79,7 @@ def findpassword():
     pass
 
 
+@login_required
 @require_GET
 def management(request, page):
     if request.user.is_superuser:
@@ -132,6 +134,7 @@ def change_authority(request, user_pk, cur_page):
     return redirect('accounts:management', cur_page)
 
 
+@require_http_methods(['GET', 'POST'])
 def profile(request, username):
     if request.method == 'POST':
         pass
@@ -149,6 +152,8 @@ def profile(request, username):
         return render(request, "accounts/profile.html", context)
 
 
+@login_required
+@require_POST
 def imageUpload(request, username):
 
     if request.user.is_authenticated:
