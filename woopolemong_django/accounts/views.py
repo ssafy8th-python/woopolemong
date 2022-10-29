@@ -130,3 +130,13 @@ def change_authority(request, user_pk, cur_page):
         return redirect('portfolios:index')
 
     return redirect('accounts:management', cur_page)
+
+
+def profile(request, username):
+    if request.method == 'POST':
+        pass
+
+    elif request.method == 'GET':
+        pass
+
+    return render(request, "accounts/profile.html")
