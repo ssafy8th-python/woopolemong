@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
@@ -137,6 +137,15 @@ def profile(request, username):
         pass
 
     elif request.method == 'GET':
-        pass
+        user = get_object_or_404(get_user_model(), username=username)
+    
+        context = {
+            "projects" : user.portfolio_set.all(),
+            "username" : user.username,
+            "my_image" : user.my_image,
+            "intro" : user.intro,
+        }
 
-    return render(request, "accounts/profile.html")
+        return render(request, "accounts/profile.html", context)
+
+
