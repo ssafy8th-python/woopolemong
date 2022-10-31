@@ -8,6 +8,7 @@ from accounts.forms import CustomUserCreationForm, CustomUserChangeImgForm, Cust
 from django.contrib.auth.decorators import login_required
 import random
 
+from django.http import JsonResponse
 
 @require_http_methods(['GET', 'POST'])
 def login(request):
@@ -18,7 +19,11 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect('portfolios:index')
+            data = {
+                'status' : 200, 
+            }
+            return JsonResponse(data)
+
     elif request.method == 'GET':
         form = AuthenticationForm()
     

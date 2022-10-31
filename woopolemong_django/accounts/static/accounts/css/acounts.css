@@ -13,11 +13,14 @@ a{
     border-radius: 10px;
 }
 
+
 .login-para{
     font-size:3.5em; 
     text-align:center;
     margin-bottom: 0;
 }
+
+
 
 .signup-para{
     font-size:3.5em; 
@@ -34,12 +37,10 @@ a{
     height: 4rem; 
     background:white;
     border:none;
-
+    width: 30%;
 }
 
-.social-img{
-    width:50%;
-}
+
 
 .login-input{
     width : 80%; 

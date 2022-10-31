@@ -8,13 +8,14 @@
     <div class="box d-flex flex-column" > 
 
         <p class="login-para">로그인</p>
-        <form action="" method="POST" class="login-form d-flex flex-column" >
+        
+        <form class="login-form d-flex flex-column" >
             {% csrf_token %}
+            <div class="login-error-message"></div>
             <br>
-            <input type="text" id="id_username" name="username" placeholder="사용자 이름" class="mt-2  mx-auto login-input" required>
+                <input type="text" id="id_username" name="username" placeholder="사용자 이름" class="mt-2  mx-auto login-input" required>
             <br>
 
-            <br>
             <input type="password" id="id_password" name="password" placeholder="비밀번호" class="  mb-1 mx-auto login-input " required>
             <br>
 
@@ -26,12 +27,13 @@
                 
                 <a href="">비밀번호 찾기</a>
             </div>
-
-            <input type="submit" value="로그인" class="signup-btn my-1  mx-auto ">
+            <div class="error-message-box text-danger "  style="text-align:center; display:none; ">
+                <span class="error-message" > 유효하지 않은 계정입니다.</span>
+            </div>
+            <input type="submit" value="로그인" class="signup-btn mt-3  mx-auto ">
             <br>
 
             <div class="d-flex justify-content-center  mx-auto ">
-                <p class="para2">
                     
                     <a href="{% url 'accounts:signup' %}" >계정 생성하기</a>
                 </p>  
@@ -42,46 +44,62 @@
         {% comment %} 소셜로그인폼 {% endcomment %}  
 
         <div class="social-login d-flex justify-content-around mx-auto ">
-            <button class="social"><img src="{% static 'accounts/img/icons/google-icon.png' %}" alt="none google img" class="social-img"></button>
-            <button class="social"><img src="{% static 'accounts/img/icons/facebook-icon.png' %}" alt="none facebook img" class="social-img"></button>
-            <button class="social"><img src="{% static 'accounts/img/icons/kakao-icon.png' %}"  alt="none kakao img" class="social-img"></button>
+            <button class="social"><img width='80%' src="{% static 'accounts/img/icons/google-icon.png' %}" alt="none google img" class="social-img"></button>
+            <button class="social"><img width='50%' src="{% static 'accounts/img/icons/facebook-icon.png' %}" alt="none facebook img" class="social-img pt-3"></button>
+            <button class="social"><img width='50%' src="{% static 'accounts/img/icons/kakao-icon.png' %}"  alt="none kakao img" class="social-img pt-3"></button>
 
         </div>
 
   </div>
 
-
-
-  {% comment %} 소셜로그인폼 {% endcomment %}  
-    {% comment %} <div>
-        <button class=" mb-4 social"> 
-            <img src="{% static 'accounts/img/icons/facebook-icon.png' %}" width ="40px" alt="none facebook img">
-            &nbsp; Sign in with Facebook
-        </button>
-        <br>
-        <button class="mb-4 social">
-            <img src="{% static 'accounts/img/icons/google-icon.png' %}" width ="40px" alt="none google img">
-            Sign in with Google
-        </button>
-        <br>
-        <button class="mb-4 social">
-            <img src="{% static 'accounts/img/icons/kakao-icon.png' %}" width ="40px" alt="none kakao img">
-            &nbsp; Sign in with Kakao
-        </button>
-        <br>
-        <button class= "social">
-            <img src="{% static 'accounts/img/icons/naver-icon.png' %}" width ="40px" alt="none naver img">
-            Sign in with Naver
-        </button>
-    </div> {% endcomment %}
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
     const socials = document.querySelectorAll(".social")
+    const loginForm = document.querySelector(".login-form")
+    const id = document.querySelector("#id_username")
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+ 
 
     socials.forEach((social) => {
         social.addEventListener('click', function () {
             alert('아직 미구현 상태입니다.')
         })
     })
+
+    
+    loginForm.addEventListener('submit', (event)=>{
+        event.preventDefault()
+        const username = document.querySelector('#id_username')
+        const password = document.querySelector('#id_password')
+        const top_box = document.querySelector('.top-box')
+        const error_box = document.querySelector('.error-message-box')
+
+        let data = new FormData()
+        data.append('username', username.value)
+        data.append('password', password.value)
+
+        axios({
+            method:'post',
+            url :'',
+            headers: {'X-CSRFToken': csrftoken},
+            data,
+        })
+          .then((response)=>{
+            if (response.data.status === 200){
+                window.location.replace({% url 'portfolios:index' %});
+            }else{
+                username.value = ''
+                password.value = ''
+                error_box.style.display = 'block'
+            }
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
+    })
 </script>
-{% endblock content %}
+{% endblock content %}  
