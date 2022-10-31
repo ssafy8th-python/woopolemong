@@ -20,7 +20,7 @@
                 </div>    
                 {% comment %} 자기소개 {% endcomment %}
                 <div class="intro-box d-flex flex-column ">
-                    <div class="intro-span my-2" style="height:40px;">{{ user.intro }}</div>
+                    <div class="intro-span my-2" style= "height:40px;">{{ user.intro }}</div>
                     <form style="display:none" class="intro-form">
                         <input type="text" class="intro-input my-2" name="content" style="height:40px; width:100%">
                         <input type="submit" value="저장" class="intro-save btn" style="background-color:#fcc8c8">
@@ -48,6 +48,8 @@
                             </div>
                         </li>
                     </a> 
+                    {% empty %}
+                        <p>작성글이 없습니다.</p>
                     {% endfor %}
                 </ul>
             <hr>
@@ -106,7 +108,7 @@
         }) {% endcomment %}
         
         introSpan.innerText = introInput.value
-        introForm.style.display='none'-
+        introForm.style.display='none'
         introSpan.style.display='block'
         introBtn.style.display='block'
           
