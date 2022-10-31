@@ -2,8 +2,117 @@
 {% load static %}
 
 {% block content %}
+<div class="d-flex flex-column"> 
+    <div class="d-flex flex-column mx-auto mt-4" style="width:90%">
+        {% comment %} 회원 프로필란 {% endcomment %}
+        <div class="d-flex flex-column">
+            {% comment %} 회원사진 {% endcomment %}
+            <div class="d-flex flex-column">
+                <div style=" border:solid; 1px; black; width:100px; height:100px;" >
+                    사-진
+                </div>
+                
+                <div class="my-1 d-flex justify-content-between" >
+                    <div style="font-size:2em">
+                        {{ username }}
+                    </div>
+                    <input type="submit" value="회원정보 수정" class="user-info-change-btn btn my-auto" style="background-color:#fcc8c8; height:38px">
+                </div>    
+                {% comment %} 자기소개 {% endcomment %}
+                <div class="intro-box d-flex flex-column ">
+                    <div class="intro-span my-2" style="height:40px;">{{ user.intro }}</div>
+                    <form style="display:none" class="intro-form">
+                        <input type="text" class="intro-input my-2" name="content" style="height:40px; width:100%">
+                        <input type="submit" value="저장" class="intro-save btn" style="background-color:#fcc8c8">
+                    </form>
+                </div>
+            </div>
+        
+                <div class="d-flex mt-1" >
+                        <input type="submit" value="프로필 편집" class="intro-edit-btn btn" style="background-color:#fcc8c8">
+                </div>
+        </div>
+        <hr>
+        
+        {% comment %} 작성글 목록{% endcomment %}
+        <div>
+            <h3>작성글</h3>
+            <hr >
+                <ul>
+                    {% for project in projects %}
+                    <a href="{% url "portfolios:detail" project.pk %}" style="text-decoration: none; color:black;"> 
+                        <li>
+                            <p>제목:{{ project.title }} </p>
+                            <div class="d-flex">
+                                {{ project.content|safe}}
+                            </div>
+                        </li>
+                    </a> 
+                    {% endfor %}
+                </ul>
+            <hr>
+        </div>
+        
+        {% comment %} 회원탈퇴 {% endcomment %}
+        
+        {% if request.user.username == username %}
+            <form action="{% url 'accounts:signout' %}"  method="POST">
+                {% csrf_token %}   
+                <input type="submit" value="회원탈퇴" class="btn bg-danger text-light">
+            </form> 
+        {% endif %}
+        
+        
+    </div>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
+    const introBtn = document.querySelector('.intro-edit-btn')
+    const introBox = document.querySelector('.intro-box')
+    const introSpan = document.querySelector('.intro-span')
+    const introForm = document.querySelector('.intro-form')
+    const introInput = document.querySelector('.intro-input')
+    const introSaveBtn = document.querySelector('.intro-save')
+    const userChangeBtn = document.querySelector('.user-info-change-btn')
+
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+    introBtn.addEventListener('click', function(event){
+        introSpan.style.display='none'
+        introInput.value = introSpan.innerText
+        introForm.style.display='block'
+        introBtn.style.display='none'
+    })
+
+    introSaveBtn.addEventListener('click', function(event){
+        event.preventDefault()
+        let data = new FormData()
+        data.append('content', introInput.value)
+        {% comment %} axios({
+            method:'post',
+            url:``,
+            data,
+            headers:{
+                'X-CSRFToken': csrftoken
+            }
+        })
+        .then(response=>{
+            introSpan.innerText = introInput.value
+            introForm.style.display='none'
+            editBtn.forEach((btn)=>{                
+                btn.style.display='block'
+            })
+        }) {% endcomment %}
+        
+        introSpan.innerText = introInput.value
+        introForm.style.display='none'-
+        introSpan.style.display='block'
+        introBtn.style.display='block'
+          
+    })
+    
+
 
 </script>
 {% endblock content %}
