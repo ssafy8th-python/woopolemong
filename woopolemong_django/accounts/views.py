@@ -1,9 +1,10 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.contrib.auth import get_user_model
-from accounts.forms import CustomUserCreationForm, CustomUserChangeImgForm
+from accounts.forms import CustomUserCreationForm, CustomUserChangeImgForm, CustomUserChangeIntroForm
 from django.contrib.auth.decorators import login_required
 import random
 
@@ -136,12 +137,19 @@ def change_authority(request, user_pk, cur_page):
 
 @require_http_methods(['GET', 'POST'])
 def profile(request, username):
+    user = get_object_or_404(get_user_model(), username=username)
+
     if request.method == 'POST':
-        pass
+        form = CustomUserChangeIntroForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            data = {
+                'status' : 201,
+            }
+            return JsonResponse(data)
 
     elif request.method == 'GET':
-        user = get_object_or_404(get_user_model(), username=username)
-    
+        pass
         context = {
             "projects" : user.portfolio_set.all(),
             "username" : user.username,

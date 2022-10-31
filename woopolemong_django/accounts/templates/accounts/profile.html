@@ -21,7 +21,7 @@
                 {% comment %} 자기소개 {% endcomment %}
                 <div class="intro-box d-flex flex-column ">
                     <div class="intro-span my-2" style= "height:40px;">{{ user.intro }}</div>
-                    <form style="display:none" class="intro-form">
+                    <form data-user-name={{ username }} style="display:none" class="intro-form">
                         <input type="text" class="intro-input my-2" name="content" style="height:40px; width:100%">
                         <input type="submit" value="저장" class="intro-save btn" style="background-color:#fcc8c8">
                     </form>
@@ -90,10 +90,10 @@
     introSaveBtn.addEventListener('click', function(event){
         event.preventDefault()
         let data = new FormData()
-        data.append('content', introInput.value)
-        {% comment %} axios({
+        data.append('intro', introInput.value)
+        axios({
             method:'post',
-            url:``,
+            url:`http://127.0.0.1:8000/accounts/profile/${introForm.dataset.userName}/`,
             data,
             headers:{
                 'X-CSRFToken': csrftoken
@@ -102,16 +102,12 @@
         .then(response=>{
             introSpan.innerText = introInput.value
             introForm.style.display='none'
-            editBtn.forEach((btn)=>{                
-                btn.style.display='block'
-            })
-        }) {% endcomment %}
-        
-        introSpan.innerText = introInput.value
-        introForm.style.display='none'
-        introSpan.style.display='block'
-        introBtn.style.display='block'
-          
+            introSpan.style.display='block'
+            introBtn.style.display='block'
+        }) 
+        .catch((error) => {
+            console.log(error)
+        })         
     })
     
 

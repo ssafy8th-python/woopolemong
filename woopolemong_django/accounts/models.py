@@ -9,7 +9,7 @@ class User(AbstractUser):
     def user_image_path(instance, filename):
         return f'images/{instance.username}/{filename}'
 
-    intro = models.TextField(default="")
+    intro = models.TextField(blank=True)
     my_image = models.ImageField(blank=True, upload_to=user_image_path)
     my_image_thumbnail = ImageSpecField(
         source='my_image',
